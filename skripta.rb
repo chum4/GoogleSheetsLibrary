@@ -2,8 +2,8 @@
 
  session = GoogleDrive::Session.from_config("config.json")
 
- ws1 = session.spreadsheet_by_key("1C6JS-s0FILAkT_obJcPPIonTvBnYdlX2DMu9Vo2ebPs").worksheets[0]
- ws2 = session.spreadsheet_by_key("1C6JS-s0FILAkT_obJcPPIonTvBnYdlX2DMu9Vo2ebPs").worksheets[1]
+#  ws1 = session.spreadsheet_by_key("1C6JS-s0FILAkT_obJcPPIonTvBnYdlX2DMu9Vo2ebPs").worksheets[0]
+#  ws2 = session.spreadsheet_by_key("1C6JS-s0FILAkT_obJcPPIonTvBnYdlX2DMu9Vo2ebPs").worksheets[1]
 
 
 class Table
@@ -174,31 +174,6 @@ class Column < Array
     end
 end
 
-
-def main(ws1)
-#     table = Table.new(ws1)
-#     p table.row(1)
-#     p table.row(2)[0]
-#     table.each {|i| p i}
-#     p table.prvaKolona
-#     p table.drugaKolona[2]
-#     p table["Prva kolona"]
-#     p table["Prva kolona"][2]
-#     p table.drugaKolona.sum
-#     p table.drugaKolona.avg
-#     p table.prvaKolona.aaa
-#     p ws1[table.start_row, table.start_col]
-#     table["Prva kolona"][2] = 2
-#     table["Cetvrta kolona"][3] = 55
-#     p table.drugaKolona.sum
-#     p table.drugaKolona.map {|i| i + 1}
-#     p table.trecaKolona.map {|i| i + 2}
-#     p table.prvaKolona.select {|i| i=="ccc"}
-#     p table.drugaKolona.reduce {|sum, i| sum + i}
-#     p table.worksheet_to_table
-# end
-
-main(ws1)
 
 
 
