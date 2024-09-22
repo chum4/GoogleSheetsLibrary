@@ -1,22 +1,52 @@
 # GoogleSheetsLibrary
-Library written in Ruby for working with google sheets
 
- The library can return a two-dimensional array of table values
- It is possible to access a row via t.row(1), and access its elements using array syntax.
- An Enumerable module (each function) must be implemented, where all cells within the table are returned, from left to right.
- The library should take care of merged fields
- [ ] syntax must be enriched so that certain values can be accessed.
- The library returns the entire column when a query is made t["First Column"]
- The library provides access to values within a column using the following syntax t["First Column"][1] to access the second element of that column
- The library allows setting values inside a cell using the following syntax
- t["First Column"][1]= 2556
- The library allows direct access to columns, through methods of the same name.
- t.firstColumn, t.secondColumn, t.thirdColumn
- Subtotal/Average of a column can be calculated using the following syntaxes t.firstColumn.sum and t.firstColumn.avg
- An individual row can be extracted from each column based on the value of one of the cells. (we'll consider that cell to uniquely identify that row)
- Example syntax: t.index.rn2310, this code will return the student row whose index is rn2310
- The column must support functions such as map, select, reduce. For example: t.firstColumn.map { |cell| cell+=1 }
- The library recognizes if there is in any way the keyword total or subtotal inside the sheet, and ignores that line
- It is possible to add two tables, as long as their headers are the same. Eg t1+t2, where each represents a table within one of the worksheets. The result will return a   new table where the rows (without headers) of t2 are added inside t1. (SQL UNION operation)
- It is possible to subtract two tables, as long as their headers are the same. Eg t1-t2, where each represents a representation of one of the worksheets. The result will   return a new table where all rows from t2 are removed from t1, if they are identical.
- The library recognizes empty lines, which can be inserted apparently to work
+A Ruby library for working with Google Sheets, providing functionality for accessing and manipulating sheet data in a structured way.
+
+## Features
+
+### Accessing Table Values
+- The library returns a two-dimensional array of table values.
+- Access a specific row using `t.row(1)`, and access its elements using standard array syntax.
+
+### Enumerable Module
+- The library implements an Enumerable module with an `each` method, allowing iteration over all cells in the table from left to right.
+- It handles merged cells effectively.
+
+### Column Access
+- Access an entire column with syntax: `t["First Column"]`.
+- Access specific elements within a column using: `t["First Column"][1]` to retrieve the second element.
+- Set values in a cell using: `t["First Column"][1] = 2556`.
+
+### Direct Column Methods
+- Directly access columns with methods corresponding to their names: 
+  - `t.firstColumn`
+  - `t.secondColumn`
+  - `t.thirdColumn`
+
+### Calculations
+- Calculate subtotal and average of a column using:
+  - `t.firstColumn.sum`
+  - `t.firstColumn.avg`
+
+### Row Extraction
+- Extract individual rows based on the value of a unique cell (e.g., student index):
+  - Example: `t.index.rn2310` returns the student row whose index is `rn2310`.
+
+### Functional Programming Support
+- Columns support functions such as `map`, `select`, and `reduce`:
+  - Example: `t.firstColumn.map { |cell| cell += 1 }`
+
+### Ignoring Specific Rows
+- The library recognizes any row containing the keywords "total" or "subtotal" and ignores those rows during operations.
+
+### Table Manipulation
+- **Addition of Tables:** You can add two tables with the same headers:
+  - Example: `t1 + t2` returns a new table with the rows of `t2` added to `t1` (similar to SQL UNION).
+  
+- **Subtraction of Tables:** You can subtract two tables with the same headers:
+  - Example: `t1 - t2` returns a new table with rows from `t2` removed from `t1`, if they are identical.
+
+### Handling Empty Lines
+- The library recognizes and can manage empty lines in the sheets, allowing for flexible data manipulation.
+
+This library simplifies interactions with Google Sheets, making data retrieval and manipulation intuitive and efficient.
